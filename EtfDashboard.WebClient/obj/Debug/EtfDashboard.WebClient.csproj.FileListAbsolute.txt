@@ -1,0 +1,1 @@
+C:\Users\almed_000\Documents\Visual Studio 2015\Projects\EtfDashboard\EtfDashboard.WebClient\obj\Debug\EtfDashboard.WebClient.csprojResolveAssemblyReference.cache

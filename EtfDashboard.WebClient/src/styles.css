@@ -1,0 +1,207 @@
+
+
+
+/*Home Page*/
+.leftSpaceHomePage {
+	margin-top:10%;
+	width: 20%;
+	float: left;
+	padding: 100px;
+}
+
+.rightSpaceHomePage {
+	  margin-top:10%;
+	width: 20%;
+	float: right;
+	padding: 10px;
+}
+
+.menu {
+	  margin-top:10%;
+	width: 25%;
+	float: left;
+	padding: 10px;
+	border: 1px solid red;
+}
+
+.centerHomePage {
+	width: 60%;
+	float: left;
+	padding: 0px;
+	margin-top: 1%;
+}
+
+.active:hover {
+	border-bottom: solid 1px white;
+}
+
+.selected {
+	border-bottom: solid 1px white;
+	
+}
+
+/*Clan Add page*/
+
+.leftSpaceAddPage {
+	  margin-top:10%;
+	width: 25%;
+	float: left;
+	padding: 10px;
+	background-color: white;
+}
+
+.rightSpaceAddPage {
+	  margin-top:10%;
+	width: 50%;
+	float: right;
+	padding: 0;
+	background-color: green;
+}
+
+
+
+.not-found {
+	font-style: italic;
+	margin-bottom: 1%;
+	padding: 0;
+	font-size: 14pt;
+	text-align: center;
+	margin-top: 10%;
+}
+
+.btn {
+	margin-top: 3%;
+}
+
+
+.pagination ul li:hover {
+	cursor: pointer;
+}
+
+.pagination ul {
+	margin-bottom: -24px;
+	padding: 0;
+}
+
+.selected-page {
+	background-color: red;
+	color: red;
+}
+
+	.selected-page:hover {
+		background-color: #428bca;
+		color: white;
+		cursor: default;
+	}
+
+.centerAddPage {
+	width: 30%;
+	float: left;
+	padding: 10px;
+	text-align: center;
+	margin-left: 5%;
+}
+
+
+/*Clan Details Page*/
+.leftSpaceDetailsPage {
+	width: 25%;
+	float: left;
+	padding: 10px;
+	background-color: white;
+}
+
+.centerSpaceDetailsPage {
+	width: 50%;
+	float: left;
+	padding: 10px;
+	margin-top: 0.5%;
+	background-color: #C0C0C0;
+	border-radius: 10px;
+}
+
+.rightSpaceDetailsPage {
+    	width: 25%;
+	float: right;
+	padding: 10px;
+	background-color: white;
+}
+
+.centerDetailsPage {
+	width: 5%;
+	float: left;
+	padding: 0px;
+}
+
+
+.main {
+	width: 75%;
+	float: left;
+	padding: 10px;
+	border: 1px solid red;
+}
+
+form label {
+	font-size: 20px;
+}
+
+form {
+	display: block;
+	text-align: center;
+	background-color: #C0C0C0;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 10%;
+	padding-top: 10%;
+	border-radius: 10px;
+}
+
+label, p, h1 {
+	font-family: "Times New Roman", Times, serif;
+}
+
+table {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 18px;
+}
+
+button {
+	font-family: "Times New Roman", Times, serif;
+}
+
+.header {
+	font-family: "Times New Roman", Times, serif;
+}
+
+
+/* =========================================== log in ========================================================= */ 
+
+.login-title {
+	margin-top: 25%;
+	margin-bottom: 5%;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 300;
+	font-size: 3.2em;
+	color: white;
+	text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+.login-block {
+	color: #0f0e0e;
+}
+
+.login-button {
+	text-align: center;
+}
+
+.main-column {
+	text-align: center;
+}
+
+.login-card {
+	display: inline-block;
+}
+
+.right {
+	margin-right: 20px;
+}
