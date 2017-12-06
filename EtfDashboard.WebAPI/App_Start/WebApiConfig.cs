@@ -16,6 +16,10 @@ namespace EtfDashboard.WebAPI
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             // Web API routes
             config.MapHttpAttributeRoutes();

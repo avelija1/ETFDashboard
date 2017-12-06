@@ -9,6 +9,7 @@ using EtfDashboard.DomainModel;
 using EtfDashboard.DTO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using EtfDashboard.Common.Mappers;
 
 namespace EtfDashboard.BLL.Services
 {
@@ -35,11 +36,11 @@ namespace EtfDashboard.BLL.Services
 
 
             //Adding users and roles to users
-            var registeredUser = CreateOrRetrieveUser(_context, userManager, newUserModel.UserName, newUserModel.FirstName, newUserModel.LastName, newUserModel.Password);
+            var registeredUser = CreateOrRetrieveUser(_context, userManager, newUserModel.UserName, newUserModel.FirstName, newUserModel.LastName, newUserModel.Password,newUserModel.Email);
             userManager.AddToRole(registeredUser.Id, newUserRole);
         }
 
-        public ApplicationUser CreateOrRetrieveUser(ApplicationDbContext context, UserManager<ApplicationUser> userManager, string userName, string firstName, string lastName, string password)
+        public ApplicationUser CreateOrRetrieveUser(ApplicationDbContext context, UserManager<ApplicationUser> userManager, string userName, string firstName, string lastName, string password,string email)
         {
             var user = context.Users.Where(x => x.UserName == userName).FirstOrDefault();
             if (user == null)
@@ -49,10 +50,62 @@ namespace EtfDashboard.BLL.Services
                     FirstName = firstName,
                     LastName = lastName,
                     UserName = userName,
+                    Email=email
                 };
                 userManager.Create(user, password);
             }
             return user;
+        }
+
+        public ApplicationUserModel GetApplicationUser(string userID)
+        {
+            if (userID=="")
+            {
+                throw new ArgumentException("Invalid user id.");
+            }
+            var user = _context.Users.Where(x => x.Id == userID).FirstOrDefault();
+            if (user == null)
+            {
+                throw new ArgumentException("User with given id not found.");
+            }
+            return user.MapApplicationUserToApplicationUserModel();
+        }
+
+        public ApplicationUserModel EditApplicationUserModel(string userID, ApplicationUserModel newApplicationUserModel)
+        {
+            var user = _context.Users.Where(x => x.Id == userID).FirstOrDefault();
+
+            var userStore = new UserStore<ApplicationUser>(_context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+
+            if (user.MapApplicationUserToApplicationUserModel() == newApplicationUserModel)
+            {
+                return  newApplicationUserModel;
+            }
+
+            user.FirstName = newApplicationUserModel.FirstName;
+            user.LastName = newApplicationUserModel.LastName;
+            user.UserName = newApplicationUserModel.UserName;
+            user.Email = newApplicationUserModel.Email;
+            userManager.ChangePassword(user.Id, user.PasswordHash, newApplicationUserModel.Password);
+
+            _context.SaveChanges();
+
+            return user.MapApplicationUserToApplicationUserModel();
+        }
+
+        public ICollection<ApplicationUserModel> GetUsers()
+        {
+            var users = _context.Users.ToList();
+            if (users == null)
+            {
+                throw new ArgumentException("Users not found.");
+            }
+
+            var usersModel = users
+                                 .Select(x => x.MapApplicationUserToApplicationUserModel())
+                                 .ToList();
+            return usersModel;
         }
     }
 }

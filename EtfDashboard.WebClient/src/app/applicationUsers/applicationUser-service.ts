@@ -22,6 +22,39 @@ export class ApplicationUserService {
             );
     }
 
+    getUserById(id: string): Promise<ApplicationUser> {
+        let url = this.applicationUsersUrl + '/' + id;
+
+        return this.httpClient
+            .get(url)
+            .toPromise()
+            .then(response => response.json())
+            .catch((error) => {
+                window.history.back();
+            });
+    }
+
+    put(user: ApplicationUser): Promise<ApplicationUser> {
+        let url = this.applicationUsersUrl + '/' + user.id
+
+        return this.httpClient
+            .put(url, JSON.stringify(user))
+            .toPromise()
+            .then(response => 
+                response.json())
+            .catch((error) => {
+                window.history.back();
+            });
+    }
+    getUsers(): Promise<ApplicationUser[]>
+    {
+        return this.httpClient
+            .get(this.applicationUsersUrl)
+            .toPromise()
+            .then(response => response.json())
+            .catch((error) => {
+            });;
+    }
     private extractData(res: any) {
         let body;
 

@@ -62,6 +62,10 @@
     <Compile Include="Services\ApplicationUserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EtfDashboard.Common\EtfDashboard.Common.csproj">
+      <Project>{1E735FFD-926E-40EF-A632-3283CBF864A1}</Project>
+      <Name>EtfDashboard.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EtfDashboard.DAL\EtfDashboard.DAL.csproj">
       <Project>{883CABCA-4AFD-435A-A473-0F5872EFDB79}</Project>
       <Name>EtfDashboard.DAL</Name>

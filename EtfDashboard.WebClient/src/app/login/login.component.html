@@ -31,9 +31,11 @@
                             <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary btn-md btn-block clickable">LOG IN</button>
                         </div>
                         <br/>
-                        <a [routerLink]="['/registration']">Not register? Register now</a>
+                      
+                        <a (click)="addUser()">Not register? Register now</a>
 
                     </form>
+                    <button (click)="addUser()">Register</button>
                 </div>
             </div>
         </div>

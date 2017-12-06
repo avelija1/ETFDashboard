@@ -16,6 +16,7 @@ namespace EtfDashboard.WebAPI
             var settings = new JsonSerializerSettings();
             var serializer = JsonSerializer.Create(settings);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+
             ConfigureAuth(app);
         }
     }

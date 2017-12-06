@@ -13,8 +13,11 @@ namespace EtfDashboard.BLL.Interfaces
    public interface IApplicationUserService
     {
         void RegisterUser(ApplicationUserModel newUser);
-        ApplicationUser CreateOrRetrieveUser(ApplicationDbContext context, UserManager<ApplicationUser> userManager, string userName, string firstName, string lastName, string password);
+        ApplicationUserModel GetApplicationUser(string userID);
+        ApplicationUserModel EditApplicationUserModel(string userID, ApplicationUserModel newApplicationUserModel);
+        ApplicationUser CreateOrRetrieveUser(ApplicationDbContext context, UserManager<ApplicationUser> userManager, string userName, string firstName, string lastName, string password,string email);
 
+        ICollection<ApplicationUserModel> GetUsers();
 
     }
 }

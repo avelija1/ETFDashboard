@@ -14,9 +14,8 @@ export class ApplicationUserComponent implements OnInit {
 
     ) { }
 
-    userName: string;
+    userName: string = localStorage.getItem("userName");
     ngOnInit() {
-        this.userName = localStorage.getItem("userName");
     }
     
 }

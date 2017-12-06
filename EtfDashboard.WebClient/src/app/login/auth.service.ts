@@ -10,6 +10,7 @@ export class AuthService {
     public isLoggedIn: boolean = false;
     public isAdmin: boolean = false;
     public currentUser: string = null;
+    public userName: string = null;
 
     constructor(public http: Http, public myGlobals: MyGlobals, public router: Router) {
         this.isLoggedIn = !!localStorage.getItem('auth_token');
@@ -42,6 +43,7 @@ export class AuthService {
         this.currentUser = null;
 
         localStorage.removeItem('userName');
+        this.userName = null;
 
 
     }
@@ -52,7 +54,7 @@ export class AuthService {
 
         let roles = JSON.parse(response.json().roles);
 
-
+        localStorage.setItem('id', response.json().Id)
         let isAdmin = roles.filter(role => role == 'Administrator').length > 0;
 
         if (isAdmin) {

@@ -16,17 +16,18 @@ namespace EtfDashboard.WebAPI.Controllers
         {
             _applicationUserService = applicationUserService;
         }
-        //// GET: api/ApplicationUsers
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        public IHttpActionResult Get()
+        {
+            var users = _applicationUserService.GetUsers();
 
-        //// GET: api/ApplicationUsers/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+            return Ok(users);
+        }
+
+        public IHttpActionResult Get(string id)
+        {
+            var user = _applicationUserService.GetApplicationUser(id);
+            return Ok(user);
+        }
 
         // POST: api/ApplicationUsers
         public void Post([FromBody]ApplicationUserModel newUser)
@@ -35,9 +36,10 @@ namespace EtfDashboard.WebAPI.Controllers
         }
 
         //// PUT: api/ApplicationUsers/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        public IHttpActionResult Put(string id, [FromBody]ApplicationUserModel applicationUserModel)
+        {
+                return Ok(_applicationUserService.EditApplicationUserModel(id,applicationUserModel));
+        }
 
         //// DELETE: api/ApplicationUsers/5
         //public void Delete(int id)

@@ -14,16 +14,16 @@ import { HttpClient } from './common/http.client';
 import { MenuComponent } from './common/menu.component';
 import { GlobalEventsManager } from './common/global-events-manager';
 import { ApplicationUserComponent } from './applicationUsers/applicationUser.component';
-import { ApplicationUserRegisterComponent } from './applicationUsers/applicationUserRegister.component';
+import { ApplicationUserSaveComponent } from './applicationUsers/applicationUserSave.component';
 import { ApplicationUserService } from './applicationUsers/applicationUser-service';
-
+import { ApplicationUserDetails } from './applicationUsers/applicationUserDetails.component';
 
 
 import { AppComponent }  from './app.component';
 
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, AppRouting],
-    declarations: [AppComponent, LoginComponent, MenuComponent, ApplicationUserComponent, ApplicationUserRegisterComponent],
+    declarations: [AppComponent, LoginComponent, MenuComponent, ApplicationUserComponent, ApplicationUserDetails, ApplicationUserSaveComponent],
     bootstrap: [AppComponent],
     providers: [MyGlobals, AuthService, HttpClient, GlobalEventsManager, AuthGuard, LoginGuard, ApplicationUserService]
 })

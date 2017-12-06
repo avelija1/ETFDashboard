@@ -3,3 +3,8 @@ C:\Users\almed_000\Documents\visual studio 2015\Projects\EtfDashboard\EtfDashboa
 C:\Users\almed_000\Documents\visual studio 2015\Projects\EtfDashboard\EtfDashboard.DTO\obj\Debug\EtfDashboard.DTO.csprojResolveAssemblyReference.cache
 C:\Users\almed_000\Documents\visual studio 2015\Projects\EtfDashboard\EtfDashboard.DTO\obj\Debug\EtfDashboard.DTO.dll
 C:\Users\almed_000\Documents\visual studio 2015\Projects\EtfDashboard\EtfDashboard.DTO\obj\Debug\EtfDashboard.DTO.pdb
+C:\Users\almed_000\Documents\GitHub\ETFDashboard\EtfDashboard.DTO\bin\Debug\EtfDashboard.DTO.dll
+C:\Users\almed_000\Documents\GitHub\ETFDashboard\EtfDashboard.DTO\bin\Debug\EtfDashboard.DTO.pdb
+C:\Users\almed_000\Documents\GitHub\ETFDashboard\EtfDashboard.DTO\obj\Debug\EtfDashboard.DTO.csprojResolveAssemblyReference.cache
+C:\Users\almed_000\Documents\GitHub\ETFDashboard\EtfDashboard.DTO\obj\Debug\EtfDashboard.DTO.dll
+C:\Users\almed_000\Documents\GitHub\ETFDashboard\EtfDashboard.DTO\obj\Debug\EtfDashboard.DTO.pdb

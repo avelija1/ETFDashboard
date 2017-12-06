@@ -23,7 +23,12 @@ export class LoginComponent {
             .catch((result) => {
             });
     }
-
+    addUser()
+    {
+        let id = "";
+        let link = ['applicationUsersSave/', id];
+        this.router.navigate(link);
+    }
     logout(event) {
         event.preventDefault();
         this.authService.logout();

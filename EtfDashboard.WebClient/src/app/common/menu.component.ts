@@ -13,6 +13,8 @@ export class MenuComponent implements OnInit {
     public isAdmin: boolean;
     public showMenu: boolean;
     private userFirstName: string;
+    private id: string;
+    userName: string;
 
     constructor(private globalEventsManager: GlobalEventsManager, private authService: AuthService, private router: Router) {
 
@@ -29,11 +31,18 @@ export class MenuComponent implements OnInit {
         this.globalEventsManager.showMenu.emit(this.authService.isLoggedIn);
         this.globalEventsManager.isAdmin.emit(this.authService.isAdmin);
         this.userFirstName = localStorage.getItem('currentUser');
+        this.userName = localStorage.getItem("userName");
+        this.id = localStorage.getItem("id");
     }
+    goToDetails() {
 
+        let link = ['applicationUsers/details', this.id];
+        this.router.navigate(link);
+    }
     logout() {
         this.globalEventsManager.showMenu.emit(false);
         this.authService.logout();
         this.router.navigate(['/login']);     
     }
+    
 }

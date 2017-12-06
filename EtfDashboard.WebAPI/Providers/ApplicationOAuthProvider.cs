@@ -51,7 +51,7 @@ namespace EtfDashboard.WebAPI.Providers
                 CookieAuthenticationDefaults.AuthenticationType);
 
 
-            AuthenticationProperties properties = CreateProperties(user.UserName, Newtonsoft.Json.JsonConvert.SerializeObject(roles));
+            AuthenticationProperties properties = CreateProperties(user.UserName, Newtonsoft.Json.JsonConvert.SerializeObject(roles),user.Id);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -93,12 +93,13 @@ namespace EtfDashboard.WebAPI.Providers
             return System.Threading.Tasks.Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName, string roles = null)
+        public static AuthenticationProperties CreateProperties(string userName, string roles = null,string id=null)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
                 { "userName", userName },
                 { "roles", roles},
+                { "Id", id},
             };
             return new AuthenticationProperties(data);
         }
