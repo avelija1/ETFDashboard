@@ -66,6 +66,7 @@ namespace EtfDashboard.WebAPI.App_Start
         {
             kernel.Bind<ApplicationDbContext>().To<ApplicationDbContext>();
             kernel.Bind<IApplicationUserService>().To<ApplicationUserService>();
+            kernel.Bind<IChartService>().To<ChartService>();
         }        
     }
 }

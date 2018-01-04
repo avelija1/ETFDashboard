@@ -17,15 +17,21 @@ import { ApplicationUserComponent } from './applicationUsers/applicationUser.com
 import { ApplicationUserSaveComponent } from './applicationUsers/applicationUserSave.component';
 import { ApplicationUserService } from './applicationUsers/applicationUser-service';
 import { ApplicationUserDetails } from './applicationUsers/applicationUserDetails.component';
+import { ChartModule } from 'angular2-highcharts';
+import { AppComponent } from './app.component';
 
+import { ColumnChartComponent } from './charts/columnChart.component';
+import { PieChartComponent } from './charts/pieChart.component';
 
-import { AppComponent }  from './app.component';
+import { LineChartComponent } from './charts/lineChart.component';
+import { ChartsService } from './charts/chart-service';
+
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, FormsModule, AppRouting],
-    declarations: [AppComponent, LoginComponent, MenuComponent, ApplicationUserComponent, ApplicationUserDetails, ApplicationUserSaveComponent],
+    imports: [BrowserModule, HttpModule, FormsModule, AppRouting, ChartModule.forRoot(require('highcharts'))],
+    declarations: [AppComponent, LoginComponent, MenuComponent, ApplicationUserComponent, ApplicationUserDetails, ApplicationUserSaveComponent, LineChartComponent, ColumnChartComponent,PieChartComponent],
     bootstrap: [AppComponent],
-    providers: [MyGlobals, AuthService, HttpClient, GlobalEventsManager, AuthGuard, LoginGuard, ApplicationUserService]
+    providers: [MyGlobals, AuthService, HttpClient, GlobalEventsManager, AuthGuard, LoginGuard, ApplicationUserService, ChartsService]
 })
 export class AppModule { }
 

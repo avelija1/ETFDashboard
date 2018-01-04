@@ -16,14 +16,14 @@ export class ApplicationUserDetails implements OnInit {
     ) { }
 
     private user: ApplicationUser;
-
+    private id:string=null;
     ngOnInit() {
 
         this.route.params.forEach((params: Params) => {
-            let id = params['id'];
+             this.id = params['id'];
 
             this.userService
-                .getUserById(id)
+                .getUserById(this.id)
                 .then(response => {
                     this.user = response;
                 })
@@ -31,6 +31,13 @@ export class ApplicationUserDetails implements OnInit {
 
     }
 
+    editUser() {
+        if (this.id != null)
+        { 
+        let link = ['applicationUsersSave/', this.id];
+        this.router.navigate(link);
+    }
+    }
     goBack() {
         window.history.back();
     }

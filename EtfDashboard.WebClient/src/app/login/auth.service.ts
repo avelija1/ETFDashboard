@@ -39,13 +39,11 @@ export class AuthService {
         this.isAdmin = false;
 
 
-        localStorage.removeItem('currentUser');
-        this.currentUser = null;
 
         localStorage.removeItem('userName');
         this.userName = null;
 
-
+        localStorage.removeItem('id');
     }
 
     private handleSuccess(response: any) {

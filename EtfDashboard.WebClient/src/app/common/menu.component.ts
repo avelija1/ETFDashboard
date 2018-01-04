@@ -20,29 +20,31 @@ export class MenuComponent implements OnInit {
 
         this.globalEventsManager.showMenu.subscribe((mode: boolean) => {
             this.showMenu = mode;
+            this.userName = localStorage.getItem('userName');
+
         });
 
         this.globalEventsManager.isAdmin.subscribe((isAdmin: boolean) => {
             this.isAdmin = isAdmin;
         });
+
     }
 
     ngOnInit() {
         this.globalEventsManager.showMenu.emit(this.authService.isLoggedIn);
         this.globalEventsManager.isAdmin.emit(this.authService.isAdmin);
-        this.userFirstName = localStorage.getItem('currentUser');
-        this.userName = localStorage.getItem("userName");
-        this.id = localStorage.getItem("id");
+
     }
     goToDetails() {
-
+        this.id = localStorage.getItem("id");
         let link = ['applicationUsers/details', this.id];
         this.router.navigate(link);
     }
     logout() {
         this.globalEventsManager.showMenu.emit(false);
         this.authService.logout();
-        this.router.navigate(['/login']);     
+        this.router.navigate(['/login']);
+        this.id = null;   
     }
     
 }

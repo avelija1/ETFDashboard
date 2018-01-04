@@ -3,17 +3,19 @@ import { ApplicationUserService } from './applicationUser-service';
 import { ApplicationUser } from './applicationUser';
 import { ActivatedRoute, Params } from '@angular/router';
 
+declare var swal;
+
 @Component({
     templateUrl: 'app/applicationUsers/applicationUserSave.component.html'
 
 })
-
 export class ApplicationUserSaveComponent {
 
     constructor(private applicationUserService: ApplicationUserService, private route: ActivatedRoute) { }
 
     private newApplicationUser: ApplicationUser = new ApplicationUser();
     private passwordConfirm: string = "";
+    private password: string = "";
 
     userName: string;
     ngOnInit() {
@@ -33,13 +35,14 @@ export class ApplicationUserSaveComponent {
 
     register() {
         this.newApplicationUser.role = "Administrator";
-        if (this.newApplicationUser.password != this.passwordConfirm)
+        if (this.password != this.passwordConfirm)
         {
             alert("Passwords don't match!");
             return;
         }
+        this.newApplicationUser.password = this.password;
         this.applicationUserService.registerApplicationUser(this.newApplicationUser).then((result) => {
-            alert("User " + this.newApplicationUser.userName + " successfully registered!");
+            swal("User registered successfully.", "", "success");
             this.goBack();
         })
             .catch((result) => {
@@ -48,8 +51,9 @@ export class ApplicationUserSaveComponent {
     edit()
     {
         this.newApplicationUser.role = "Administrator";
+       
         this.applicationUserService.put(this.newApplicationUser).then((result) => {
-            alert("User " + this.newApplicationUser.userName + " successfully registered!");
+            swal("User edited successfully.", "", "success");
             this.goBack();
         })
     }

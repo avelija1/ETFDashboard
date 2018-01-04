@@ -78,6 +78,7 @@ namespace EtfDashboard.BLL.Services
             var userStore = new UserStore<ApplicationUser>(_context);
             var userManager = new UserManager<ApplicationUser>(userStore);
 
+
             if (user.MapApplicationUserToApplicationUserModel() == newApplicationUserModel)
             {
                 return  newApplicationUserModel;
@@ -87,8 +88,7 @@ namespace EtfDashboard.BLL.Services
             user.LastName = newApplicationUserModel.LastName;
             user.UserName = newApplicationUserModel.UserName;
             user.Email = newApplicationUserModel.Email;
-            userManager.ChangePassword(user.Id, user.PasswordHash, newApplicationUserModel.Password);
-
+          
             _context.SaveChanges();
 
             return user.MapApplicationUserToApplicationUserModel();

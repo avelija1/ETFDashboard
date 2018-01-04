@@ -1,8 +1,10 @@
-﻿<div>
-    <p>
-    <br/>
+﻿<div style="margin-top:100px; margin-left:500px">
+    <p style="display:inline-block">
+        <chart [options]="bachelorStudentsPie"></chart>
+        <chart [options]="bachelorStudentsBar"></chart>
+        <chart [options]="bachelorStudentsLine"></chart>
+        <chart [options]="o"></chart>
         </p>
-        <p style="text-align:center;font-size:150px;font-weight:bold;">Welcome {{userName}}!</p>
-            
+    <button (click)="goToPieChart()">PieChart</button>
+    <button (click)="goToColumnChart()">ColumnChart</button>
 </div>
-

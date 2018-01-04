@@ -4,12 +4,12 @@ import { Http, Headers } from '@angular/http';
 import { GlobalEventsManager } from '../common/global-events-manager';
 import { AuthService } from './auth.service';
 
+declare var swal;
 
 @Component({
     selector: 'login',
     templateUrl: '/app/login/login.component.html',
 })
-
 export class LoginComponent {
     constructor(private authService: AuthService, private router: Router, private globalEventsManager: GlobalEventsManager) { }
 
@@ -18,9 +18,10 @@ export class LoginComponent {
         this.authService.login(username, password).then((result) => {
             this.globalEventsManager.isAdmin.emit(this.authService.isAdmin);
             this.globalEventsManager.showMenu.emit(true);
-            if (localStorage.getItem('isAdmin')) this.router.navigate(['/applicationUsers']);
+            if (localStorage.getItem('isAdmin')) this.router.navigate(['/charts/piechart']);
         })
             .catch((result) => {
+                swal("The username or password are incorrect!", "", "error");
             });
     }
     addUser()

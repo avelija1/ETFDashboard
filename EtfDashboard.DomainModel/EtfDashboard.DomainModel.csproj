@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="ColumnChartObject.cs" />
+    <Compile Include="PieChartObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudyYear.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

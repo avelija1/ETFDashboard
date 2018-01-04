@@ -1,9 +1,11 @@
-﻿<div class="container-fluid container-login">
+﻿
+
+<div class="container-fluid container-login">
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-4 col-xl-4">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 main-column">
-            <h1 class="text-center login-title">EtfDashboard  <span class="font-weight-bold"></span></h1>
+            <h1 class="text-center login-title">ETF <span class="font-weight-bold"> <br>Dashboard</span></h1>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-4 col-xl-4">
         </div>
@@ -23,19 +25,16 @@
                     <form id="myForm" #loginForm="ngForm" (submit)="login($event, username.value, password.value)">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" id="username"  #username class="form-control" name="username"  placeholder="Username"  required>
+                            <input type="text" id="username" #username class="form-control" name="username" placeholder="Username" required>
                             <label for="password">Password</label>
                             <input type="password" id="password" #password class="form-control" name="password" placeholder="Password" required>
                         </div>
                         <div class="login-button">
                             <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-primary btn-md btn-block clickable">LOG IN</button>
                         </div>
-                        <br/>
-                      
-                        <a (click)="addUser()">Not register? Register now</a>
-
                     </form>
-                    <button (click)="addUser()">Register</button>
+                    <a (click)="addUser()" [routerLinkActive]="['selected']" class="nav-link">Not register? Register now</a>
+
                 </div>
             </div>
         </div>
