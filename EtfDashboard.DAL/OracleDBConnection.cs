@@ -23,5 +23,5 @@ namespace EtfDashboard.DAL
             catch { }
             return connection;
         }
-}
+    }
 }

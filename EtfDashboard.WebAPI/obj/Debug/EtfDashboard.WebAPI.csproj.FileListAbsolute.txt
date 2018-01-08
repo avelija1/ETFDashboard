@@ -445,3 +445,4 @@ C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard
 C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard.WebAPI\obj\Debug\EtfDashboard.WebAPI.dll
 C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard.WebAPI\obj\Debug\EtfDashboard.WebAPI.pdb
 C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard.WebAPI\bin\Oracle.ManagedDataAccess.dll
+C:\Users\almed_000\Documents\GitHub\ETFDashboard\EtfDashboard.WebAPI\bin\Oracle.ManagedDataAccess.dll

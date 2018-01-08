@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit {
         this.globalEventsManager.showMenu.emit(false);
         this.authService.logout();
         this.router.navigate(['/login']);
-        this.id = null;   
+        this.id = null;
     }
-    
+
 }

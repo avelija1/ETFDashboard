@@ -57,11 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademicYear.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="ColumnChartObject.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="PassScore.cs" />
     <Compile Include="PieChartObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudyYear.cs" />
+    <Compile Include="Subject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

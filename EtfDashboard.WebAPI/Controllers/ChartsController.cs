@@ -16,12 +16,29 @@ namespace EtfDashboard.WebAPI.Controllers
             _chartService = chartService;
         }
 
+        [HttpGet]
+        [Route("api/Charts/Departments")]
+        public IHttpActionResult Departments()
+        {
+            var lista = _chartService.GetDepartments();
+
+            return Ok(lista);
+        }
+
+        [HttpGet]
+        [Route("api/Charts/Subjects")]
+        public IHttpActionResult Subjects(int? godina = null, int? odsjek = null)
+        {
+            var lista = _chartService.GetSubjects(godina, odsjek);
+
+            return Ok(lista);
+        }
 
         [HttpGet]
         [Route("api/Charts/PieChart")]
-        public IHttpActionResult PieChart(int? godina=null,string ciklus=null)
+        public IHttpActionResult PieChart(int? studyYear = null, int? academicYear = null)
         {
-            var lista = _chartService.GetPieChartData(godina,ciklus);
+            var lista = _chartService.GetPieChartData(studyYear, academicYear);
 
             return Ok(lista);
         }
@@ -33,35 +50,22 @@ namespace EtfDashboard.WebAPI.Controllers
 
             return Ok(lista);
         }
+        [HttpGet]
+        [Route("api/Charts/AcademicYears")]
+        public IHttpActionResult GetAcademicYears()
+        {
+            var lista = _chartService.GetAcademicYears();
 
+            return Ok(lista);
+        }
 
         [HttpGet]
         [Route("api/Charts/ColumnChart")]
-        public IHttpActionResult ColumnChart(int? godina=null, string ciklus=null)
+        public IHttpActionResult ColumnChart(int? godina = null, string ciklus = null)
         {
             var lista = _chartService.GetColumnChartData(godina, ciklus);
 
             return Ok(lista);
-        }
-        // GET: api/Charts/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Charts
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Charts/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Charts/5
-        public void Delete(int id)
-        {
         }
     }
 }

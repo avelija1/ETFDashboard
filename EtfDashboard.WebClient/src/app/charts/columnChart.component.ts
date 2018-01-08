@@ -8,45 +8,33 @@ import { ChartsService } from '../charts/chart-service';
 })
 
 export class ColumnChartComponent implements OnInit {
-    //bachelor = [{ 'name': 'RI', y: 30 }, { name: 'TK', y: 15 }, { name: 'AIE', y: 5 }, { name: 'EE', y: 10 }];
-    //master = [{ name: 'RI', y: 60 }, { name: 'TK', y: 15 }, { name: 'AIE', y: 10 }, { name: 'EE', y: 15 }];
-    //masterbar = [{ name: 'RI', y: 60 }, { name: 'TK', y: 15 }, { name: 'AIE', y: 10 }, { name: 'EE', y: 15 }];
-    //masterLine = [{ name: '2010', y: 20 }, { name: '2011', y: 30 }, { name: '2012', y: 40 }, { name: '2013', y: 60 }, { name: '2014', y: 60 }, { name: '2015', y: 80 }, { name: '2016', y: 80 }];
 
     constructor(private chartsService: ChartsService) {
 
     }
-    //bachelorStudentsPie: Object;
-    //masterStudentsPie: Object;
-    //bachelorStudentsBar: Object;
-    //bachelorStudentsLine: Object;
+    studyYears = [];
+    yearID: number;
     o: Object;
     columnChart: Object;
-    //nova: Object;
     godina: number;
     k: Object;
     ciklusStudija: string;
     rok: string;
-
     userName: string = localStorage.getItem("userName");
-    ngOnInit() {
 
-        
-       
+    ngOnInit() {
+        this.yearID = 0;
+        this.chartsService.getStudyYears().then(response => {
+            this.studyYears = response
+        })
     }
 
     kreiraj() {
 
-        if (this.ciklusStudija == undefined) {
-            return;
-        }
-        if (this.ciklusStudija == 'master' && this.godina > 2) {
-            return;
-        }
-
         this.chartsService.getColumnChartData(this.godina, this.ciklusStudija).then(response => {
             this.o = response;
             let kategorije = [];
+            this.rok = "Sve";
             if (this.rok == "Januar") {
                 kategorije = [
                     'Januar',
@@ -89,8 +77,7 @@ export class ColumnChartComponent implements OnInit {
                     name: response[3].name, data: [response[3].data[0], response[3].data[1], response[3].data[2]]
                 }]
             }
-            else
-            {
+            else {
                 return;
             }
             this.columnChart = {

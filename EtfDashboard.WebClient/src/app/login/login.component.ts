@@ -24,8 +24,7 @@ export class LoginComponent {
                 swal("The username or password are incorrect!", "", "error");
             });
     }
-    addUser()
-    {
+    addUser() {
         let id = "";
         let link = ['applicationUsersSave/', id];
         this.router.navigate(link);

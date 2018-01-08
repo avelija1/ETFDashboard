@@ -118,7 +118,6 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="src\app\applicationUsers\applicationUser.component.html" />
     <Content Include="src\app\common\menu.component.html" />
     <Content Include="src\app\login\login.component.html" />
     <Content Include="src\index.html" />
@@ -134,18 +133,20 @@
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
     <TypeScriptCompile Include="src\app\applicationUsers\applicationUser-service.ts" />
-    <TypeScriptCompile Include="src\app\applicationUsers\applicationUser.component.ts" />
     <TypeScriptCompile Include="src\app\applicationUsers\applicationUser.ts" />
     <TypeScriptCompile Include="src\app\applicationUsers\applicationUserDetails.component.ts" />
     <TypeScriptCompile Include="src\app\applicationUsers\applicationUserSave.component.ts" />
+    <TypeScriptCompile Include="src\app\charts\academicYearObject.ts" />
     <TypeScriptCompile Include="src\app\charts\columnChartObject.ts" />
     <TypeScriptCompile Include="src\app\charts\chart-service.ts" />
+    <TypeScriptCompile Include="src\app\charts\departmentObject.ts" />
     <TypeScriptCompile Include="src\app\charts\lineChart.component.ts" />
     <TypeScriptCompile Include="src\app\charts\lineChart.ts" />
     <TypeScriptCompile Include="src\app\charts\pieChartObject.ts" />
     <TypeScriptCompile Include="src\app\charts\columnChart.component.ts" />
     <TypeScriptCompile Include="src\app\charts\pieChart.component.ts" />
     <TypeScriptCompile Include="src\app\charts\studyYearObject.ts" />
+    <TypeScriptCompile Include="src\app\charts\subjectObject.ts" />
     <TypeScriptCompile Include="src\app\common\global-events-manager.ts" />
     <TypeScriptCompile Include="src\app\common\http.client.ts" />
     <TypeScriptCompile Include="src\app\common\menu.component.ts" />

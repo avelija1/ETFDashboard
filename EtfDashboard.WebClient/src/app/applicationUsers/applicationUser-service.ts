@@ -40,14 +40,13 @@ export class ApplicationUserService {
         return this.httpClient
             .put(url, JSON.stringify(user))
             .toPromise()
-            .then(response => 
+            .then(response =>
                 response.json())
             .catch((error) => {
                 window.history.back();
             });
     }
-    getUsers(): Promise<ApplicationUser[]>
-    {
+    getUsers(): Promise<ApplicationUser[]> {
         return this.httpClient
             .get(this.applicationUsersUrl)
             .toPromise()

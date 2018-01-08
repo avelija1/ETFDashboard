@@ -9,7 +9,7 @@ export class LoginGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (this.authService.isLoggedIn) {
             if (state.url = '/login') {
-                if (localStorage.getItem('isAdmin'))this.router.navigate(['/applicationUsers']);
+                if (localStorage.getItem('isAdmin')) this.router.navigate(['/charts/piechart']);
                 return false;
             }
         }

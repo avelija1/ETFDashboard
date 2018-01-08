@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChartsService } from '../charts/chart-service';
-
+declare var swal;
 
 @Component({
     templateUrl: 'app/charts/pieChart.component.html'
@@ -13,44 +13,84 @@ export class PieChartComponent implements OnInit {
     constructor(private chartsService: ChartsService) {
 
     }
+    brojStudenta: boolean = false;
+    prolaznost: boolean = false;
     bachelorStudentsPie: Object;
-    masterStudentsPie: Object;
-    bachelorStudentsBar: Object;
-    bachelorStudentsLine: Object;
-    o: Object;
-    nova: Object;
-    godina: number;
-    ciklusStudija: string;
     studyYears = [];
+    academicYears = [];
+    departments = [];
+    subjects = [];
+    subjectID: number;
+    departmentID: number;
     yearID: number;
+    academicyearID: number;
+    filterId: number;
+    studyYearIDForPassFilter: number;
     userName: string = localStorage.getItem("userName");
+
     ngOnInit() {
+        this.filterId = 0;
+        this.yearID = 0;
+        this.studyYearIDForPassFilter = 0;
+        this.academicyearID = 0;
+        this.departmentID = 0;
+        this.subjectID = 0;
         this.chartsService.getStudyYears().then(response => {
             this.studyYears = response
         })
+        this.chartsService.getAcademicYears().then(response => {
+            this.academicYears = response
+        })
+        this.chartsService.getDepartments().then(response => {
+            this.departments = response
+        })
     }
-    kreiraj() {
-
-        if (this.ciklusStudija == undefined)
-        {
+    getSubjects(departmentID) {
+        if (departmentID != 0 && this.studyYearIDForPassFilter != 0) {
+            this.chartsService.getSubjects(this.studyYearIDForPassFilter, departmentID).then(response => {
+                this.subjects = response
+            })
+        }
+    }
+    kreirajZaBrojStudenata() {
+        if (this.yearID == 0 || this.academicyearID == 0) {
             return;
         }
-        if (this.ciklusStudija == 'master' && this.godina > 2)
-        {
-            return;
-        }
-        this.chartsService.getPieChartData(this.godina, this.ciklusStudija).then(response => {
-            this.nova = response;
-            this.bachelorStudentsPie = {
-                title: { text: 'Studenti po odsjecima na ' + this.ciklusStudija + ' studij u ' +this.godina+ ' godini:' },
-                chart: { type: 'pie' },
+        if (this.studyYears.length > 0 && this.academicYears.length > 0) {
 
-                series: [{
-                    data: this.nova,
-                    allowPointSelect: true
-                }]
-            };
-        });
+            let nazivStudijske = this.studyYears.filter(x => x.id == this.yearID)[0].title;
+            let nazivAkademske = this.academicYears.filter(x => x.id == this.academicyearID)[0].title;
+            this.chartsService.getPieChartData(this.yearID, this.academicyearID).then(response => {
+                if (response.length == 0 || response == undefined) {
+                    swal("No record found.", "", "info");
+                    return;
+                }
+                this.bachelorStudentsPie = {
+                    title: { text: 'Number of students per departments on study year ' + nazivStudijske + ' and ' + nazivAkademske + ':' },
+                    chart: { type: 'pie' },
+
+                    series: [{
+                        data: response,
+                        allowPointSelect: true
+                    }]
+                };
+            });
+        }
     }
 
+    kreirajZaProlaznost() {
+        if (this.studyYearIDForPassFilter == 0 || this.academicyearID == 0 || this.subjectID == 0 || this.departmentID == 0) {
+            return;
+        }
+        this.chartData = [{ 'name': 'Pass', y: 45 }, { name: 'Fail', y: 55 }];
+        this.bachelorStudentsPie = {
+            title: { text: 'Pass score:' },
+            chart: { type: 'pie' },
+
+            series: [{
+                data: this.chartData,
+                allowPointSelect: true
+            }]
+        };
+    }
 }

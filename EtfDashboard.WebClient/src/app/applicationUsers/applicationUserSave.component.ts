@@ -35,8 +35,7 @@ export class ApplicationUserSaveComponent {
 
     register() {
         this.newApplicationUser.role = "Administrator";
-        if (this.password != this.passwordConfirm)
-        {
+        if (this.password != this.passwordConfirm) {
             alert("Passwords don't match!");
             return;
         }
@@ -46,13 +45,13 @@ export class ApplicationUserSaveComponent {
             this.goBack();
         })
             .catch((result) => {
-           });
+            });
     }
-    edit()
-    {
+    edit() {
         this.newApplicationUser.role = "Administrator";
-       
-        this.applicationUserService.put(this.newApplicationUser).then((result) => {
+
+        this.applicationUserService.put(this.new
+        ).then((result) => {
             swal("User edited successfully.", "", "success");
             this.goBack();
         })

@@ -12,34 +12,12 @@
                     <div class="row">
                         <div class="col-xl-10" style="margin-left:100px">
                             <form class="form-group" name="form" #filterForm="ngForm">
-                                <label class="sr-only" for="inlineFormInput">Godina</label>
-                                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Unesite godinu studija..." [(ngModel)]="godina" name="input" min="1" max="3">
-                                <br>
                                 <div class="form-group filter-element">
-                                    <label for="inlineFormInput">Ciklus studija:</label>&nbsp;
-                                    <select [(ngModel)]="ciklusStudija" placeholder="Odaberite ciklus studija" class="form-control select float-left" #ciklus="ngModel" id="ciklus" name="ciklus" required>
-                                        <option value="bachelor">Bachelor</option>
-                                        <option value="master">Master</option>
-                                        <option value="phd">PhD</option>
+                                    <label for="inlineFormInput">Odaberite godinu studija:</label>&nbsp;
+                                    <select id="year" class="form-control clickable" [(ngModel)]="yearID" name="year">
+                                        <option value="0">Select year of study</option>
+                                        <option *ngFor="let year of studyYears" value="{{year.ID}}">{{year.title}} </option>
                                     </select>
-                                    <div *ngIf="ciklus.errors && (ciklus.dirty || ciklus.touched)" class="alert alert-danger">
-                                        <div [hidden]="!ciklus.errors.required">
-                                            Odaberite ciklus studija
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <label for="inlineFormInput">Rok:</label>&nbsp;
-                                    <select [(ngModel)]="rok" placeholder="Odaberite rok" class="form-control select float-left" #ispitniRok="ngModel" id="rok" name="rok" required>
-                                        <option value="Sve">Sve</option>
-                                        <option value="Januar">Januar</option>
-                                        <option value="Jul">Jul</option>
-                                        <option value="Septembar">Septembar</option>
-                                    </select>
-                                    <div *ngIf="ispitniRok.errors && (ispitniRok.dirty || ispitniRok.touched)" class="alert alert-danger">
-                                        <div [hidden]="!ispitniRok.errors.required">
-                                            Odaberite rok
-                                        </div>
-                                    </div>
                                 </div>
                                 <br>
                                 <br>

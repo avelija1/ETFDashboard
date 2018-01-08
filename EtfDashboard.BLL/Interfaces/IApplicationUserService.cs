@@ -10,14 +10,12 @@ using System.Threading.Tasks;
 
 namespace EtfDashboard.BLL.Interfaces
 {
-   public interface IApplicationUserService
+    public interface IApplicationUserService
     {
         void RegisterUser(ApplicationUserModel newUser);
         ApplicationUserModel GetApplicationUser(string userID);
         ApplicationUserModel EditApplicationUserModel(string userID, ApplicationUserModel newApplicationUserModel);
-        ApplicationUser CreateOrRetrieveUser(ApplicationDbContext context, UserManager<ApplicationUser> userManager, string userName, string firstName, string lastName, string password,string email);
-
+        ApplicationUser CreateOrRetrieveUser(ApplicationDbContext context, UserManager<ApplicationUser> userManager, string userName, string firstName, string lastName, string password, string email);
         ICollection<ApplicationUserModel> GetUsers();
-
     }
 }

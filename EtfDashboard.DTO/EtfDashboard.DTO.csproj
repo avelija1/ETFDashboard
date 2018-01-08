@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademicYearModel.cs" />
     <Compile Include="ApplicationUserModel.cs" />
     <Compile Include="ColumnChartObjectModel.cs" />
+    <Compile Include="DepartmentModel.cs" />
+    <Compile Include="PassScoreModel.cs" />
     <Compile Include="PieChartObjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudyYearModel.cs" />
+    <Compile Include="SubjectModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

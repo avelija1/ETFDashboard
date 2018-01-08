@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-4 col-xl-4">
         </div>
-      
+
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-4 col-xl-4">
         </div>
     </div>
@@ -27,20 +27,20 @@
                             <input type="text" id="LastName" #LastName="ngModel" [(ngModel)]="newApplicationUser.lastName" class="form-control" name="LastName" placeholder="LastName" required>
                             <label for="Email">Email</label>
                             <input type="text" id="Email" #email="ngModel" [(ngModel)]="newApplicationUser.email" class="form-control" name="Email" placeholder="Email" required>
-                             <label for="Username">Username</label>
-                            <input type="text" id="Username"  #Username="ngModel" [(ngModel)]="newApplicationUser.userName" class="form-control" name="Username" placeholder="UserName" required>
+                            <label for="Username">Username</label>
+                            <input type="text" id="Username" #Username="ngModel" [(ngModel)]="newApplicationUser.userName" class="form-control" name="Username" placeholder="UserName" required>
                             <div *ngIf="!newApplicationUser.id">
                                 <label for="Password">Set a new password</label>
                                 <input type="password" id="Password" #Password="ngModel" [(ngModel)]="password" class="form-control" name="Password" placeholder="Password" required>
                                 <label for="Password">Confirm password</label>
                                 <input type="password" id="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="passwordConfirm" class="form-control" name="confirmPassword" placeholder="Password" required>
                             </div>
-                            </div>
+                        </div>
                         <div class="login-button">
                             <div *ngIf="!newApplicationUser.id">
-                            <button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-primary btn-md btn-block clickable">Register</button>
-                           </div>
-                                              
+                                <button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-primary btn-md btn-block clickable">Register</button>
+                            </div>
+
                         </div>
 
                     </form>

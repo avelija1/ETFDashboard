@@ -38,12 +38,7 @@ namespace EtfDashboard.WebAPI.Controllers
         //// PUT: api/ApplicationUsers/5
         public IHttpActionResult Put(string id, [FromBody]ApplicationUserModel applicationUserModel)
         {
-                return Ok(_applicationUserService.EditApplicationUserModel(id,applicationUserModel));
+            return Ok(_applicationUserService.EditApplicationUserModel(id, applicationUserModel));
         }
-
-        //// DELETE: api/ApplicationUsers/5
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

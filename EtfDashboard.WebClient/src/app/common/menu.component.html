@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand"  href="#">ETF Dashboard</a>
+        <a class="navbar-brand" href="#">ETF Dashboard</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -14,17 +14,17 @@
                 <li *ngIf="isAdmin" [routerLinkActive]="['selected']" class="nav-item active">
                     <a [routerLink]="['charts/piechart']" class="nav-link">Pie charts</a>
                 </li>
-                <li  [routerLinkActive]="['selected']" class="nav-item active">
+                <li [routerLinkActive]="['selected']" class="nav-item active">
                     <a [routerLink]="['charts/columnchart']" [routerLinkActive]="['selected']" class="nav-link">Column charts</a>
                 </li>
                 <li *ngIf="isAdmin" [routerLinkActive]="['selected']" class="nav-item active">
                     <a [routerLink]="['charts/linechart']" class="nav-link">Line charts</a>
                 </li>
-                
+
             </ul>
             <div *ngIf="userName">
-            <a (click)="goToDetails()" class="navbar-brand" style="margin-left:-55px !important" >{{userName}}</a>
-                </div>
+                <a (click)="goToDetails()" class="navbar-brand" style="margin-left:-55px !important">{{userName}}</a>
+            </div>
             <button class="btn btn-outline-primary button-logout clickable" type="submit" (click)="logout()">LOG OUT</button>
         </div>
     </nav>

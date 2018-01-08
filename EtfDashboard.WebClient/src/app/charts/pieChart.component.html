@@ -11,13 +11,43 @@
                 <div class="card-block">
                     <div class="row">
                         <div class="col-xl-10" style="margin-left:100px">
-                            <form class="form-group" name="form" #filterForm="ngForm" >
+                            <form class="form-group" name="form" #filterForm="ngForm">
                                 <div class="form-group filter-element">
-                                    <label for="inlineFormInput">Odaberite godinu studija:</label>&nbsp;
-                                    <select id="year" class="form-control clickable" [(ngModel)]="yearID" name="year">
-                                        <option value="">Select year of study</option>
-                                        <option *ngFor="let year of studyYears" value="{{year.ID}}">{{year.title}} </option>
+                                    <select id="filterid" class="form-control clickable" [(ngModel)]="filterId" name="filter">
+                                        <option value="0">Select filter</option>
+                                        <option value="1">Number of students per department</option>
+                                        <option value="2">Pass score</option>
                                     </select>
+                                    <br />
+                                    <div *ngIf="filterId==1">
+                                        <select id="year" class="form-control clickable" [(ngModel)]="yearID" name="year">
+                                            <option value="0">Select year of study</option>
+                                            <option *ngFor="let year of studyYears" value="{{year.id}}">{{year.title}} </option>
+                                        </select>
+                                        <br />
+                                        <select id="academicyear" class="form-control clickable" [(ngModel)]="academicyearID" name="academicyear">
+                                            <option value="0">Select academic year of study</option>
+                                            <option *ngFor="let year of academicYears" value="{{year.id}}">{{year.title}} </option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="filterId==2">
+
+
+                                        <select id="yearForSubject" class="form-control clickable" [(ngModel)]="studyYearIDForPassFilter" name="yearForSubject">
+                                            <option value="0">Select year of study</option>
+                                            <option *ngFor="let year of studyYears" value="{{year.id}}">{{year.title}} </option>
+                                        </select>
+                                        <br />
+                                        <select id="department" class="form-control clickable" [(ngModel)]="departmentID" name="department" (ngModelChange)="getSubjects(departmentID)">
+                                            <option value="0">Select department</option>
+                                            <option *ngFor="let department of departments" value="{{department.id}}">{{department.title}} </option>
+                                        </select>
+                                        <br />
+                                        <select id="subject" class="form-control clickable" [(ngModel)]="subjectID" name="subject">
+                                            <option value="0">Select subject</option>
+                                            <option *ngFor="let subject of subjects" value="{{subject.id}}">{{subject.title}} </option>
+                                        </select>
+                                    </div>
                                     <!--<div *ngIf="year.errors && (year.dirty || year.touched)" class="alert alert-danger">
                                         <div [hidden]="!year.errors.required">
                                            Odaberite godinu studija
@@ -26,11 +56,12 @@
                                 </div>
                                 <br>
                                 <br>
-                               
-                                <div class="row"><button  type="submit" [disabled]="!filterForm.form.valid" class="btn btn-primary clickable" (click)="kreiraj()" style="margin-left:37%;width:200px">Kreiraj chart</button></div>
+
+                                <div class="row" *ngIf="filterId==1"><button type="submit" [disabled]="!filterForm.form.valid" class="btn btn-primary clickable" (click)="kreirajZaBrojStudenata()" style="margin-left:37%;width:200px">Kreiraj chart</button></div>
+                                <div class="row" *ngIf="filterId==2"><button type="submit" [disabled]="!filterForm.form.valid" class="btn btn-primary clickable" (click)="kreirajZaProlaznost()" style="margin-left:37%;width:200px">Kreiraj chart</button></div>
 
                             </form>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -58,4 +89,5 @@
         <div class="col-xl-2">
         </div>
     </div>
+
 </div>

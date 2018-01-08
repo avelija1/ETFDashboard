@@ -85,3 +85,4 @@ C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard
 C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard.BLL\obj\Debug\EtfDashboard.BLL.dll
 C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard.BLL\obj\Debug\EtfDashboard.BLL.pdb
 C:\Users\almed_000\Desktop\Oracle i baze podataka\Almo\ETFDashboard\EtfDashboard.BLL\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\almed_000\Documents\GitHub\ETFDashboard\EtfDashboard.BLL\bin\Debug\Oracle.ManagedDataAccess.dll
