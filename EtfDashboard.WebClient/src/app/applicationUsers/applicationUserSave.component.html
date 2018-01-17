@@ -40,9 +40,7 @@
                             <div *ngIf="!newApplicationUser.id">
                                 <button type="submit" [disabled]="!registerForm.form.valid" class="btn btn-primary btn-md btn-block clickable">Register</button>
                             </div>
-
                         </div>
-
                     </form>
                     <div *ngIf="newApplicationUser.id">
                         <button (click)="edit()">Save Changes</button>

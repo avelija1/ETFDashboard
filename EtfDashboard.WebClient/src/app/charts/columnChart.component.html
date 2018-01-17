@@ -13,14 +13,22 @@
                         <div class="col-xl-10" style="margin-left:100px">
                             <form class="form-group" name="form" #filterForm="ngForm">
                                 <div class="form-group filter-element">
-                                    <label for="inlineFormInput">Odaberite godinu studija:</label>&nbsp;
                                     <select id="year" class="form-control clickable" [(ngModel)]="yearID" name="year">
                                         <option value="0">Select year of study</option>
                                         <option *ngFor="let year of studyYears" value="{{year.ID}}">{{year.title}} </option>
                                     </select>
                                 </div>
                                 <br>
-                                <br>
+                                <div class="form-group filter-element">
+                                    <select id="rokovi" class="form-control clickable" [(ngModel)]="rok" name="rokovi">
+                                        <option value="">Select exam period</option>
+                                        <option value="Januar">January</option>
+                                        <option value="Jul">July</option>
+                                        <option value="Septembar">September</option>
+                                        <option value="Sve">All</option>
+
+                                    </select>
+                                </div>
 
                                 <div class="row"><button type="submit" [disabled]="!filterForm.form.valid" class="btn btn-primary clickable" (click)="kreiraj()" style="margin-left:37%;width:200px">Kreiraj chart</button></div>
 

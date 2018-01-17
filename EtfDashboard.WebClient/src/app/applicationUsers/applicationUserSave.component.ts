@@ -50,7 +50,7 @@ export class ApplicationUserSaveComponent {
     edit() {
         this.newApplicationUser.role = "Administrator";
 
-        this.applicationUserService.put(this.new
+        this.applicationUserService.put(this.newApplicationUser
         ).then((result) => {
             swal("User edited successfully.", "", "success");
             this.goBack();

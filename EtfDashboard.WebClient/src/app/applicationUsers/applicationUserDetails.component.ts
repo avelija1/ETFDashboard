@@ -4,6 +4,7 @@ import { ApplicationUserService } from './applicationUser-service';
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Params } from '@angular/router';
 import { Router } from '@angular/router';
+import { ApplicationUser } from './applicationUser'
 
 @Component({
     templateUrl: 'app/applicationUsers/applicationUserDetails.component.html'

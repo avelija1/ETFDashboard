@@ -66,9 +66,8 @@ export class PieChartComponent implements OnInit {
                     return;
                 }
                 this.bachelorStudentsPie = {
-                    title: { text: 'Number of students per departments on study year ' + nazivStudijske + ' and ' + nazivAkademske + ':' },
+                    title: { text: 'Number of students per department on study year ' + nazivStudijske + ' and ' + nazivAkademske + ':' },
                     chart: { type: 'pie' },
-
                     series: [{
                         data: response,
                         allowPointSelect: true
@@ -79,14 +78,11 @@ export class PieChartComponent implements OnInit {
     }
 
     kreirajZaProlaznost() {
-        if (this.studyYearIDForPassFilter == 0 || this.academicyearID == 0 || this.subjectID == 0 || this.departmentID == 0) {
-            return;
-        }
-        this.chartData = [{ 'name': 'Pass', y: 45 }, { name: 'Fail', y: 55 }];
+        this.chartData = [{ 'name': 'Pass', y: 38 }, { name: 'Fail', y: 62 }];
         this.bachelorStudentsPie = {
             title: { text: 'Pass score:' },
             chart: { type: 'pie' },
-
+            colors: ['#00FF00', '#FF0000'],
             series: [{
                 data: this.chartData,
                 allowPointSelect: true

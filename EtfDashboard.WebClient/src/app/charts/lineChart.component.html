@@ -13,7 +13,6 @@
                         <div class="col-xl-10" style="margin-left:100px">
                             <form class="form-group" name="form" #filterForm="ngForm">
                                 <div class="form-group filter-element">
-                                    <label for="inlineFormInput">Odaberite godinu studija:</label>&nbsp;
                                     <select id="year" class="form-control clickable" [(ngModel)]="yearID" name="year">
                                         <option value="0">Select year of study</option>
                                         <option *ngFor="let year of studyYears" value="{{year.ID}}">{{year.title}} </option>

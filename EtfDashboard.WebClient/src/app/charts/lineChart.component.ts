@@ -12,7 +12,7 @@ export class LineChartComponent implements OnInit {
     constructor(private chartsService: ChartsService) {
     }
     lineData: Object;
-    lineChart: Object=null;
+    lineChart: Object = null;
     userName: string = localStorage.getItem("userName");
     godina: number;
     ciklusStudija: string;

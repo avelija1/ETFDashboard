@@ -23,6 +23,7 @@ export class ColumnChartComponent implements OnInit {
     userName: string = localStorage.getItem("userName");
 
     ngOnInit() {
+        this.rok = "";
         this.yearID = 0;
         this.chartsService.getStudyYears().then(response => {
             this.studyYears = response
@@ -34,10 +35,9 @@ export class ColumnChartComponent implements OnInit {
         this.chartsService.getColumnChartData(this.godina, this.ciklusStudija).then(response => {
             this.o = response;
             let kategorije = [];
-            this.rok = "Sve";
             if (this.rok == "Januar") {
                 kategorije = [
-                    'Januar',
+                    'January',
                 ]
                 this.o = [{ name: response[0].name, data: [response[0].data[0]] }, { name: response[1].name, data: [response[1].data[0]] }, { name: response[2].name, data: [response[2].data[0]] }, { name: response[3].name, data: [response[3].data[0]] }]
 
@@ -45,7 +45,7 @@ export class ColumnChartComponent implements OnInit {
             }
             else if (this.rok == "Jul") {
                 kategorije = [
-                    'Jul',
+                    'July',
                 ]
                 this.o = [{ name: response[0].name, data: [response[0].data[1]] }, { name: response[1].name, data: [response[1].data[1]] }, { name: response[2].name, data: [response[2].data[1]] }, { name: response[3].name, data: [response[3].data[1]] }]
 
@@ -53,16 +53,16 @@ export class ColumnChartComponent implements OnInit {
             }
             else if (this.rok == "Septembar") {
                 kategorije = [
-                    'Septembar',
+                    'September',
                 ]
                 this.o = [{ name: response[0].name, data: [response[0].data[2]] }, { name: response[1].name, data: [response[1].data[2]] }, { name: response[2].name, data: [response[2].data[2]] }, { name: response[3].name, data: [response[3].data[2]] }]
 
             }
             else if (this.rok == "Sve") {
                 kategorije = [
-                    'Januar',
-                    'Jul',
-                    'Septembar'
+                    'January',
+                    'July',
+                    'September'
                 ]
                 this.o = [{
                     name: response[0].name, data: [response[0].data[0], response[0].data[1], response[0].data[2]]
@@ -85,7 +85,7 @@ export class ColumnChartComponent implements OnInit {
                     type: 'column'
                 },
                 title: {
-                    text: 'Prolaznost po rokovima'
+                    text: 'Pass percentage'
                 },
                 xAxis: {
                     categories: kategorije,
@@ -94,7 +94,7 @@ export class ColumnChartComponent implements OnInit {
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Prolaznost (%)'
+                        text: 'Pass percentage(%)'
                     }
                 },
 
@@ -113,20 +113,20 @@ export class ColumnChartComponent implements OnInit {
                 type: 'column'
             },
             title: {
-                text: 'Prolaznost po rokovima'
+                text: 'Pass percentage'
             },
             xAxis: {
                 categories: [
-                    'Januar',
-                    'Jul',
-                    'Septembar',
+                    'January',
+                    'July',
+                    'September',
                 ],
                 crosshair: true
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Prolaznost (%)'
+                    text: 'Pass percentage (%)'
                 }
             },
 
@@ -137,19 +137,19 @@ export class ColumnChartComponent implements OnInit {
                 }
             },
             series: [{
-                name: 'AIE',
+                name: 'Automatic Control and Electronics',
                 data: [49.9, 30.5, 10.4]
 
             }, {
-                name: 'RI',
+                name: 'Computing & Informatics',
                 data: [83.6, 78.8, 98.5]
 
             }, {
-                name: 'TK',
+                name: 'Telecommunications',
                 data: [48.9, 38.8, 39.3]
 
             }, {
-                name: 'EE',
+                name: 'Power Electrical Engineering',
                 data: [48.9, 38.8, 39.3]
 
             }]

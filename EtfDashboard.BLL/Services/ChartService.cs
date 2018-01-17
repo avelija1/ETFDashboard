@@ -38,35 +38,42 @@ namespace EtfDashboard.BLL.Services
             }
             catch (Exception e)
             {
+
             }
             return null;
         }
         public ICollection<ColumnChartObjectModel> GetColumnChartData(int? godina = null, string ciklus = null)
         {
-            //TODO:Dobavi podatke iz baze
-
-            ICollection<Double> lista1 = new List<Double>();
-            lista1.Add(10);//januar
-            lista1.Add(20);//jul
-            lista1.Add(30);//decembar
-            ICollection<Double> lista2 = new List<Double>();
-            lista2.Add(25);//januar
-            lista2.Add(25);//jul
-            lista2.Add(50);//decembar
-            ICollection<Double> lista3 = new List<Double>();
-            lista3.Add(15);//januar
-            lista3.Add(15);//jul
-            lista3.Add(70);//decembar
-            ColumnChartObjectModel o1 = new ColumnChartObjectModel { Name = "RI", Data = lista1 };
-            ColumnChartObjectModel o2 = new ColumnChartObjectModel { Name = "AIE", Data = lista2 };
-            ColumnChartObjectModel o3 = new ColumnChartObjectModel { Name = "EE", Data = lista3 };
-            ColumnChartObjectModel o4 = new ColumnChartObjectModel { Name = "TK", Data = lista1 };
-            ICollection<ColumnChartObjectModel> lista = new List<ColumnChartObjectModel>();
-            lista.Add(o1);
-            lista.Add(o2);
-            lista.Add(o3);
-            lista.Add(o4);
-            return lista;
+            try
+            {
+                ICollection<Double> lista1 = new List<Double>();
+                lista1.Add(10);//januar
+                lista1.Add(20);//jul
+                lista1.Add(30);//decembar
+                ICollection<Double> lista2 = new List<Double>();
+                lista2.Add(25);//januar
+                lista2.Add(25);//jul
+                lista2.Add(50);//decembar
+                ICollection<Double> lista3 = new List<Double>();
+                lista3.Add(15);//januar
+                lista3.Add(15);//jul
+                lista3.Add(70);//decembar
+                ColumnChartObjectModel o1 = new ColumnChartObjectModel { Name = "RI", Data = lista1 };
+                ColumnChartObjectModel o2 = new ColumnChartObjectModel { Name = "AIE", Data = lista2 };
+                ColumnChartObjectModel o3 = new ColumnChartObjectModel { Name = "EE", Data = lista3 };
+                ColumnChartObjectModel o4 = new ColumnChartObjectModel { Name = "TK", Data = lista1 };
+                ICollection<ColumnChartObjectModel> lista = new List<ColumnChartObjectModel>();
+                lista.Add(o1);
+                lista.Add(o2);
+                lista.Add(o3);
+                lista.Add(o4);
+                return lista;
+            }
+            catch (Exception e)
+            {
+                return null;
+            //    throw new Exception("Error: " + e.Message);
+            }
         }
 
         public ICollection<StudyYearModel> GetStudyYears()
@@ -89,8 +96,9 @@ namespace EtfDashboard.BLL.Services
             }
             catch (Exception e)
             {
+                return null;
+                //throw new Exception("Error: " + e.Message);
             }
-            return null;
         }
         public ICollection<AcademicYearModel> GetAcademicYears()
         {
@@ -112,8 +120,9 @@ namespace EtfDashboard.BLL.Services
             }
             catch (Exception e)
             {
+                return null; 
+                //throw new Exception("Error: " + e.Message);
             }
-            return null;
         }
 
         public ICollection<DepartmentModel> GetDepartments()
@@ -136,8 +145,9 @@ namespace EtfDashboard.BLL.Services
             }
             catch (Exception e)
             {
+                return null;
+              //  throw new Exception("Error: " + e.Message);
             }
-            return null;
         }
 
         public ICollection<SubjectModel> GetSubjects(int? studyYearId = default(int?), int? departmentID = default(int?))
@@ -166,8 +176,9 @@ namespace EtfDashboard.BLL.Services
             }
             catch (Exception e)
             {
+                return null;
+              //  throw new Exception("Error: " + e.Message);
             }
-            return null;
         }
 
         public ICollection<PassScoreModel> GetPassScore(int? studyYearId = default(int?), int? departmentID = default(int?), int? courseId = default(int?))
@@ -199,8 +210,9 @@ namespace EtfDashboard.BLL.Services
             }
             catch (Exception e)
             {
+                return null;
+               // throw new Exception("Error: " + e.Message);
             }
-            return null;
         }
     }
 }
